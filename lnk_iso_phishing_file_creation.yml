@@ -1,0 +1,28 @@
+title: lnk iso Phishing File Creation
+id: 9b52e81a-3558-49c1-a40d-561b175006b8
+status: experimental
+description: Detects the execution of the new phishing trend using iso and lnk files.
+author: Gabe Abdelgawad
+date: 2022/08/07
+references:
+  - https://www.proofpoint.com/us/blog/threat-insight/how-threat-actors-are-adapting-post-macro-world
+  - https://www.netskope.com/blog/lokibot-nanocore-iso-disk-image-files
+  - https://app.any.run/tasks/25796d58-1067-4f19-b5c6-26b6257a56ce/
+tags:
+  - attack.initial_access
+  - attack.t1566
+  - attack.t1204.002
+logsource:
+  category: file_creation
+  product: windows
+detection:
+  selection1:
+    ParentFilename|endswith: ".iso"
+  selection2:
+    TargetFilename|endswith|any:
+      - ".dll"
+      - ".lnk"
+  condition: selection1 and selection2
+falsepositives:
+  - Unknown
+level: high
