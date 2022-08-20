@@ -15,11 +15,11 @@ logsource:
   product: windows
 detection:
   filepath:
-    FileName|startswith|any:
+    FileName|startswith:
       - 'C:\Users\Public\'
       - 'C:\\Users\\Public\\'
   extension:
-    FileName|endswith|any:
+    FileName|endswith:
       - ".exe"
       - ".dll"
       - ".url"

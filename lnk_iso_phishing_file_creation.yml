@@ -19,7 +19,7 @@ detection:
   selection1:
     ParentFilename|endswith: ".iso"
   selection2:
-    TargetFilename|endswith|any:
+    TargetFilename|endswith:
       - ".dll"
       - ".lnk"
   condition: selection1 and selection2
