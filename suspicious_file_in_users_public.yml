@@ -1,0 +1,51 @@
+title: suspicious_file_in_users_public
+id: 5353ada9-a5ac-4828-8455-32194218a517
+status: experimental
+description: Detects suspicious and likely malicious files in the C:\Users\Public file path which is sometimes used by threat actors as a location for executables used for additional recon or lateral movement.
+author: Gabe Abdelgawad
+date: 2022/08/19
+references:
+  - https://twitter.com/MaxRogers5/status/1559205898337370112
+tags:
+  - attack.reconnaissance
+  - attack.lateral_movement
+  - attack.t1105
+logsource:
+  category: file_event
+  product: windows
+detection:
+  filepath:
+    FileName|startswith|any:
+      - 'C:\Users\Public\'
+      - 'C:\\Users\\Public\\'
+  extension:
+    FileName|endswith|any:
+      - ".exe"
+      - ".dll"
+      - ".url"
+      - ".ps1"
+      - ".jar"
+      - ".py"
+      - ".bat"
+      - ".vb"
+      - ".vbs"
+      - ".bin"
+      - ".vba"
+      - ".msi"
+      - ".hta"
+      - ".html"
+      - ".htm"
+      - ".cmd"
+      - ".js"
+      - ".jse"
+      - ".msh"
+      - ".sfx"
+      - ".tmp"
+      - ".ps2"
+      - ".psc1"
+      - ".ps1xml"
+      #- ".lnk" would require additional tuning
+  condition: filepath and extension
+falsepositives:
+  - Some weird but legitimate vendor applications run files from this location, easy to tune out if seen
+level: high

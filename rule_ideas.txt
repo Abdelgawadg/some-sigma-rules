@@ -1,0 +1,6 @@
+https://blog.talosintelligence.com/2022/08/recent-cyber-attack.html
+https://isc.sans.edu/diary/Monster+Libra+%28TA551Shathak%29+pushes+IcedID+%28Bokbot%29+with+Dark+VNC+and+Cobalt+Strike/28934
+https://www.cybereason.com/blog/rundll32-the-infamous-proxy-for-executing-malicious-code
+https://thedfirreport.com/2022/08/08/bumblebee-roasts-its-way-to-domain-admin/
+https://www.sentinelone.com/labs/who-needs-macros-threat-actors-pivot-to-abusing-explorer-and-other-lolbins-via-windows-shortcuts/
+https://twitter.com/rpargman/status/1558914468536389632
